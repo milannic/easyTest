@@ -1,5 +1,6 @@
 
 CFALGS= -Wall -c
+LDFLAGS=-rdynamic
 CPP= g++
 CC= gcc
 
@@ -7,7 +8,7 @@ CC= gcc
 PROGRAM= test.out
 
 test.out:test.o
-	$(CC) $< -o $@
+	$(CC) $(LDFLAGS) $< -o $@
 
 .c.o:
 	$(CC) $(CFALGS) $< -o $@
