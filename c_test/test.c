@@ -28,8 +28,15 @@ int my_own(int level){
 
 	ret = backtrace(EIP,size);
 	char ** str = backtrace_symbols(EIP,ret);
+	if(EIP[2] > EIP[1]){
+		printf("hahahah\n");
+		printf("%p\n",EIP[2]);
+		printf("%p\n",EIP[1]);
+	}
 
-
+	printf("-------------------\n");
+	printf("-------------------\n");
+	printf("-------------------\n");
 		
 	printf("level = %d\n",level);
 
@@ -37,9 +44,6 @@ int my_own(int level){
 		printf("%p\n",EIP[i]);
 		printf("%s\n",str[i]);
 	}
-	printf("-------------------\n");
-	printf("%p\n",EIP[2]);
-	printf("%s\n",str[2]);
 	printf("-------------------\n");
 	if(level>0){
 		ret = my_own(level-1);
