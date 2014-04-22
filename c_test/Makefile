@@ -4,9 +4,9 @@ CPP= g++
 CC= gcc
 
 
-PROGRAM= test
+PROGRAM= test.out
 
-test:test.o
+test.out:test.o
 	$(CC) $< -o $@
 
 .c.o:
@@ -20,4 +20,4 @@ clean:
 
 .PHONY:run
 run:
-	./test
+	./test.out

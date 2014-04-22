@@ -1,10 +1,10 @@
 
 CFALGS=-Wall -c
 
-PROGRAM= test
+PROGRAM= test.out
 CPP=g++
 
-test:test.o
+test.out:test.o
 	$(CPP) $< -o $@
 
 .cpp.o:
@@ -18,4 +18,4 @@ clean:
 
 .PHONY:run
 run:
-	./test
+	./test.out
