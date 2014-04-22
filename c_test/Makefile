@@ -1,5 +1,4 @@
-
-CFALGS= -Wall -c
+CFLAGS= -c -g
 LDFLAGS=-rdynamic
 CPP= g++
 CC= gcc
@@ -8,10 +7,10 @@ CC= gcc
 PROGRAM= test.out
 
 test.out:test.o
-	$(CC) $(LDFLAGS) $< -o $@
+	$(CC) $(LDFLAGS) -o $@ $<
 
 .c.o:
-	$(CC) $(CFALGS) $< -o $@
+	$(CC) $(CFLAGS) -o $@ $<
 
 .PHONY:clean
 

@@ -21,14 +21,13 @@
 #include<execinfo.h>
 #define SIZE 20
 
-int haha(int level){
+int my_own(int level){
 	int ret;
 	int size = SIZE;
 	void * EIP[SIZE];
-	void * SYMBOL[SIZE];
 
 	ret = backtrace(EIP,size);
-	char ** str = backtrace_symbols(SYMBOL,ret);
+	char ** str = backtrace_symbols(EIP,ret);
 
 
 		
@@ -43,7 +42,7 @@ int haha(int level){
 	printf("%s\n",str[2]);
 	printf("-------------------\n");
 	if(level>0){
-		ret = haha(level-1);
+		ret = my_own(level-1);
 	}
 	free(str);
 	return 0;
@@ -57,6 +56,6 @@ main ( int argc, char *argv[] )
 	if("hahaha"){
 		printf("this is always true\n");
 	}
-	a = haha(5);
+	a = my_own(5);
 	return EXIT_SUCCESS;
 }				/* ----------  end of function main  ---------- */
