@@ -1,20 +1,29 @@
 
 CFALGS=-Wall -c
 
-PROGRAM= test.out
+SOURCE=$(shell ls *.cpp)
+PROGRAM=$(subst .cpp,.out,$(SOURCE))
 CPP=g++
 
-test.out:test.o
+all:$(PROGRAM)
+
+%.out:%.o
 	$(CPP) $< -o $@
 
-.cpp.o:
+%.o:%.cpp
 	$(CPP) $(CFALGS) $< -o $@
+
 
 
 .PHONY:clean
 
 clean:
 	rm $(PROGRAM)
+
+.PHONY:list
+list:
+	@echo $(SOURCE)
+	@echo $(PROGRAM)
 
 .PHONY:run
 run:
